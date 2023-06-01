@@ -48,4 +48,14 @@ body {
   .submit-button:hover {
     background-color: #660066;
   }
-  
+  #forgot-password {
+    display: block;
+    margin-top: 5px;
+    color: #979797;
+    text-decoration: none;
+}
+body {
+    background-image: url('student\ background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
