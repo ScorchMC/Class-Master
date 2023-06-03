@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    </head>    
+<head>
+    <link rel="stylesheet" type="text/css" href="create.css">
+    <style>
+        .logo {
+            width: 100px; /* Adjust as needed */
+            height: auto; /* Keeps the aspect ratio */
+        }
+    
+        #subject-selection {
+            width: 100%; /* Ensure the input field takes up the full width of its container */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="class master logo.png" alt="ClassMaster Logo" class="logo">
+    </div>
+    <div class="content">
+        <div class="input-section">
+            <div class="input-box">
+                <label for="subject-selection">Subject</label>
+                <select id="subject-selection" class="input-field">
+                    <option value="english_k_y10">English (K-Y10)</option>
+    <option value="english_k_y10_foundation">English (K-Y10) Foundation</option>
+    <option value="english_k_y10_intermediate">English (K-Y10) Intermediate</option>
+    <option value="english_k_y10_advanced">English (K-Y10) Advanced</option>
+    <option value="mathematics_k_y10">Mathematics (K-Y10)</option>
+    <option value="mathematics_k_y10_foundation">Mathematics (K-Y10) Foundation</option>
+    <option value="mathematics_k_y10_intermediate_b">Mathematics (K-Y10) Intermediate B</option>
+    <option value="mathematics_k_y10_intermediate_a">Mathematics (K-Y10) Intermediate A</option>
+    <option value="mathematics_k_y10_advanced">Mathematics (K-Y10) Advanced</option>
+    <option value="science_k_y10">Science (K-Y10)</option>
+    <option value="science_k_y10_foundation">Science (K-Y10) Foundation</option>
+    <option value="science_k_y10_intermediate">Science (K-Y10) Intermediate</option>
+    <option value="science_k_y10_advanced">Science (K-Y10) Advanced</option>
+    <option value="humanities_and_social_sciences_k_y10">Humanities and Social Sciences (K-Y10)</option>
+    <option value="humanities_and_social_sciences_k_y10_history">Humanities and Social Sciences (K-Y10) History</option>
+    <option value="humanities_and_social_sciences_k_y10_geography">Humanities and Social Sciences (K-Y10) Geography</option>
+    <option value="humanities_and_social_sciences_k_y10_civics_and_citizenship">Humanities and Social Sciences (K-Y10) Civics and Citizenship</option>
+    <option value="humanities_and_social_sciences_k_y10_economics_and_business">Humanities and Social Sciences (K-Y10) Economics and Business</option>
+    <option value="the_arts_k_y10">The Arts (K-Y10)</option>
+    <option value="the_arts_k_y10_dance">The Arts (K-Y10) Dance</option>
+    <option value="the_arts_k_y10_drama">The Arts (K-Y10) Drama</option>
+    <option value="the_arts_k_y10_media_arts">The Arts (K-Y10) Media Arts</option>
+    <option value="the_arts_k_y10_music">The Arts (K-Y10) Music</option>
+    <option value="the_arts_k_y10_visual_arts">The Arts (K-Y10) Visual Arts</option>
+    <option value="technologies_k_y10">Technologies (K-Y10)</option>
+    <option value="technologies_k_y10_design_and_technologies">Technologies (K-Y10) Design and Technologies</option>
+    <option value="technologies_k_y10_digital_technologies">Technologies (K-Y10) Digital Technologies</option>
+    <option value="health_and_physical_education_k_y10">Health and Physical Education (K-Y10)</option>
+    <option value="languages_k_y10">Languages (K-Y10)</option>
+    <option value="arts_dance_atar">Arts Dance (ATAR)</option>
+    <option value="arts_dance_general">Arts Dance (General)</option>
+    <option value="arts_design_atar">Arts Design (ATAR)</option>
+    <option value="arts_design_general">Arts Design (General)</option>
+    <option value="arts_drama_atar">Arts Drama (ATAR)</option>
+    <option value="arts_drama_general">Arts Drama (General)</option>
+    <option value="arts_media_production_and_analysis_atar">Arts Media Production and Analysis (ATAR)</option>
+    <option value="arts_media_production_and_analysis_general">Arts Media Production and Analysis (General)</option>
+    <option value="arts_music_atar">Arts Music (ATAR)</option>
+    <option value="arts_music_general">Arts Music (General)</option>
+    <option value="arts_visual_arts_atar">Arts Visual Arts (ATAR)</option>
+    <option value="arts_visual_arts_general">Arts Visual Arts (General)</option>
+    <option value="english_english_atar">English English (ATAR)</option>
+    <option value="english_english_general">English English (General)</option>
+    <option value="english_literature_atar">English Literature (ATAR)</option>
+    <option value="english_literature_general">English Literature (General)</option>
+    <option value="english_english_as_an_additional_language_or_dialect_atar">English English as an Additional Language or Dialect (ATAR)</option>
+    <option value="english_english_as_an_additional_language_or_dialect_general">English English as an Additional Language or Dialect (General)</option>
+    <option value="health_and_physical_education_health_studies_atar">Health and Physical Education Health Studies (ATAR)</option>
+    <option value="health_and_physical_education_health_studies_general">Health and Physical Education Health Studies (General)</option>
+    <option value="health_and_physical_education_outdoor_education_atar">Health and Physical Education Outdoor Education (ATAR)</option>
+    <option value="health_and_physical_education_outdoor_education_general">Health and Physical Education Outdoor Education (General)</option>
+    <option value="health_and_physical_education_physical_education_studies_atar">Health and Physical Education Physical Education Studies (ATAR)</option>
+    <option value="health_and_physical_education_physical_education_studies_general">Health and Physical Education Physical Education Studies (General)</option>
+    <option value="humanities_and_social_sciences_aboriginal_and_intercultural_studies_atar">Humanities and Social Sciences Aboriginal and Intercultural Studies (ATAR)</option>
+    <option value="humanities_and_social_sciences_aboriginal_and_intercultural_studies_general">Humanities and Social Sciences Aboriginal and Intercultural Studies (General)</option>
+    <option value="humanities_and_social_sciences_accounting_and_finance_atar">Humanities and Social Sciences Accounting and Finance (ATAR)</option>
+    <option value="humanities_and_social_sciences_accounting_and_finance_general">Humanities and Social Sciences Accounting and Finance (General)</option>
+    <option value="humanities_and_social_sciences_ancient_history_atar">Humanities and Social Sciences Ancient History (ATAR)</option>
+    <option value="humanities_and_social_sciences_ancient_history_general">Humanities and Social Sciences Ancient History (General)</option>
+    <option value="humanities_and_social_sciences_business_management_and_enterprise_atar">Humanities and Social Sciences Business Management and Enterprise (ATAR)</option>
+    <option value="humanities_and_social_sciences_business_management_and_enterprise_general">Humanities and Social Sciences Business Management and Enterprise (General)</option>
+    <option value="humanities_and_social_sciences_career_and_enterprise_atar">Humanities and Social Sciences Career and Enterprise (ATAR)</option>
+    <option value="humanities_and_social_sciences_career_and_enterprise_general">Humanities and Social Sciences Career and Enterprise (General)</option>
+    <option value="humanities_and_social_sciences_economics_atar">Humanities and Social Sciences Economics (ATAR)</option>
+    <option value="humanities_and_social_sciences_economics_general">Humanities and Social Sciences Economics (General)</option>
+    <option value="humanities_and_social_sciences_geography_atar">Humanities and Social Sciences Geography (ATAR)</option>
+    <option value="humanities_and_social_sciences_geography_general">Humanities and Social Sciences Geography (General)</option>
+    <option value="humanities_and_social_sciences_modern_history_atar">Humanities and Social Sciences Modern History (ATAR)</option>
+    <option value="humanities_and_social_sciences_modern_history_general">Humanities and Social Sciences Modern History (General)</option>
+    <option value="humanities_and_social_sciences_philosophy_and_ethics_atar">Humanities and Social Sciences Philosophy and Ethics (ATAR)</option>
+    <option value="humanities_and_social_sciences_philosophy_and_ethics_general">Humanities and Social Sciences Philosophy and Ethics (General)</option>
+    <option value="humanities_and_social_sciences_politics_and_law_atar">Humanities and Social Sciences Politics and Law (ATAR)</option>
+    <option value="humanities_and_social_sciences_politics_and_law_general">Humanities and Social Sciences Politics and Law (General)</option>
+    <option value="humanities_and_social_sciences_religion_and_life_atar">Humanities and Social Sciences Religion and Life (ATAR)</option>
+    <option value="humanities_and_social_sciences_religion_and_life_general">Humanities and Social Sciences Religion and Life (General)</option>
+    <option value="languages_aboriginal_languages_of_wa_atar">Languages Aboriginal Languages of WA (ATAR)</option>
+    <option value="languages_aboriginal_languages_of_wa_general">Languages Aboriginal Languages of WA (General)</option>
+    <option value="languages_chinese_second_language_atar">Languages Chinese: Second Language (ATAR)</option>
+    <option value="languages_chinese_second_language_general">Languages Chinese: Second Language (General)</option>
+    <option value="languages_chinese_background_language_atar">Languages Chinese: Background Language (ATAR)</option>
+    <option value="languages_chinese_background_language_general">Languages Chinese: Background Language (General)</option>
+    <option value="languages_chinese_first_language_atar">Languages Chinese: First Language (ATAR)</option>
+    <option value="languages_chinese_first_language_general">Languages Chinese: First Language (General)</option>
+    <option value="languages_french_second_language_atar">Languages French: Second Language (ATAR)</option>
+    <option value="languages_french_second_language_general">Languages French: Second Language (General)</option>
+    <option value="languages_french_background_language_atar">Languages French: Background Language (ATAR)</option>
+    <option value="languages_french_background_language_general">Languages French: Background Language (General)</option>
+    <option value="languages_german_second_language_atar">Languages German: Second Language (ATAR)</option>
+    <option value="languages_german_second_language_general">Languages German: Second Language (General)</option>
+    <option value="languages_german_background_language_atar">Languages German: Background Language (ATAR)</option>
+    <option value="languages_german_background_language_general">Languages German: Background Language (General)</option>
+    <option value="languages_indonesian_second_language_atar">Languages Indonesian: Second Language (ATAR)</option>
+    <option value="languages_indonesian_second_language_general">Languages Indonesian: Second Language (General)</option>
+    <option value="languages_indonesian_first_language_atar">Languages Indonesian: First Language (ATAR)</option>
+    <option value="languages_indonesian_first_language_general">Languages Indonesian: First Language (General)</option>
+    <option value="languages_interstate_languages_atar">Languages Interstate Languages (ATAR)</option>
+    <option value="languages_interstate_languages_general">Languages Interstate Languages (General)</option>
+    <option value="languages_italian_second_language_atar">Languages Italian: Second Language (ATAR)</option>
+    <option value="languages_italian_second_language_general">Languages Italian: Second Language (General)</option>
+    <option value="languages_italian_background_language_atar">Languages Italian: Background Language (ATAR)</option>
+    <option value="languages_italian_background_language_general">Languages Italian: Background Language (General)</option>
+    <option value="languages_japanese_second_language_atar">Languages Japanese: Second Language (ATAR)</option>
+    <option value="languages_japanese_second_language_general">Languages Japanese: Second Language (General)</option>
+    <option value="languages_japanese_background_language_atar">Languages Japanese: Background Language (ATAR)</option>
+    <option value="languages_japanese_background_language_general">Languages Japanese: Background Language (General)</option>
+    <option value="mathematics_mathematics_specialist_atar">Mathematics Mathematics Specialist (ATAR)</option>
+    <option value="mathematics_mathematics_specialist_general">Mathematics Mathematics Specialist (General)</option>
+    <option value="mathematics_mathematics_methods_atar">Mathematics Mathematics Methods (ATAR)</option>
+    <option value="mathematics_mathematics_methods_general">Mathematics Mathematics Methods (General)</option>
+    <option value="mathematics_mathematics_applications_atar">Mathematics Mathematics Applications (ATAR)</option>
+    <option value="mathematics_mathematics_applications_general">Mathematics Mathematics Applications (General)</option>
+    <option value="mathematics_mathematics_essential_atar">Mathematics Mathematics Essential (ATAR)</option>
+    <option value="mathematics_mathematics_essential_general">Mathematics Mathematics Essential (General)</option>
+    <option value="mathematics_mathematics_foundation_atar">Mathematics Mathematics Foundation (ATAR)</option>
+    <option value="mathematics_mathematics_foundation_general">Mathematics Mathematics Foundation (General)</option>
+    <option value="mathematics_mathematics_preliminary_atar">Mathematics Mathematics Preliminary (ATAR)</option>
+    <option value="mathematics_mathematics_preliminary_general">Mathematics Mathematics Preliminary (General)</option>
+    <option value="science_animal_production_systems_atar">Science Animal Production Systems (ATAR)</option>
+    <option value="science_animal_production_systems_general">Science Animal Production Systems (General)</option>
+    <option value="science_aviation_atar">Science Aviation (ATAR)</option>
+    <option value="science_aviation_general">Science Aviation (General)</option>
+    <option value="science_biology_atar">Science Biology (ATAR)</option>
+    <option value="science_biology_general">Science Biology (General)</option>
+    <option value="science_chemistry_atar">Science Chemistry (ATAR)</option>
+    <option value="science_chemistry_general">Science Chemistry (General)</option>
+    <option value="science_earth_and_environmental_science_atar">Science Earth and Environmental Science (ATAR)</option>
+    <option value="science_earth_and_environmental_science_general">Science Earth and Environmental Science (General)</option>
+    <option value="science_human_biology_atar">Science Human Biology (ATAR)</option>
+    <option value="science_human_biology_general">Science Human Biology (General)</option>
+    <option value="science_integrated_science_atar">Science Integrated Science (ATAR)</option>
+    <option value="science_integrated_science_general">Science Integrated Science (General)</option>
+    <option value="science_marine_and_maritime_studies_atar">Science Marine and Maritime Studies (ATAR)</option>
+    <option value="science_marine_and_maritime_studies_general">Science Marine and Maritime Studies (General)</option>
+    <option value="science_physics_atar">Science Physics (ATAR)</option>
+    <option value="science_physics_general">Science Physics (General)</option>
+    <option value="science_plant_production_systems_atar">Science Plant Production Systems (ATAR)</option>
+    <option value="science_plant_production_systems_general">Science Plant Production Systems (General)</option>
+    <option value="science_psychology_atar">Science Psychology (ATAR)</option>
+    <option value="science_psychology_general">Science Psychology (General)</option>
+    <option value="technologies_applied_information_technology_atar">Technologies Applied Information Technology (ATAR)</option>
+    <option value="technologies_applied_information_technology_general">Technologies Applied Information Technology (General)</option>
+    <option value="technologies_automotive_engineering_and_technology_atar">Technologies Automotive Engineering and Technology (ATAR)</option>
+    <option value="technologies_automotive_engineering_and_technology_general">Technologies Automotive Engineering and Technology (General)</option>
+    <option value="technologies_aviation_atar">Technologies Aviation (ATAR)</option>
+    <option value="technologies_aviation_general">Technologies Aviation (General)</option>
+    <option value="technologies_building_and_construction_atar">Technologies Building and Construction (ATAR)</option>
+    <option value="technologies_building_and_construction_general">Technologies Building and Construction (General)</option>
+    <option value="technologies_children_family_and_the_community_atar">Technologies Children, Family and the Community (ATAR)</option>
+    <option value="technologies_children_family_and_the_community_general">Technologies Children, Family and the Community (General)</option>
+    <option value="technologies_computer_science_atar">Technologies Computer Science (ATAR)</option>
+    <option value="technologies_computer_science_general">Technologies Computer Science (General)</option>
+    <option value="technologies_design_atar">Technologies Design (ATAR)</option>
+    <option value="technologies_design_general">Technologies Design (General)</option>
+    <option value="technologies_engineering_studies_atar">Technologies Engineering Studies (ATAR)</option>
+    <option value="technologies_engineering_studies_general">Technologies Engineering Studies (General)</option>
+    <option value="technologies_food_science_and_technology_atar">Technologies Food Science and Technology (ATAR)</option>
+    <option value="technologies_food_science_and_technology_general">Technologies Food Science and Technology (General)</option>
+    <option value="technologies_materials_design_and_technology_atar">Technologies Materials Design and Technology (ATAR)</option>
+    <option value="technologies_materials_design_and_technology_general">Technologies Materials Design and Technology (General)</option>
+    <option value="vet_industry_specific_automotive_cert">VET Industry Specific Automotive (CERT)</option>
+    <option value="vet_industry_specific_business_and_financial_services_cert">VET Industry Specific Business and Financial Services (CERT)</option>
+    <option value="vet_industry_specific_community_services_and_health_cert">VET Industry Specific Community Services and Health (CERT)</option>
+    <option value="vet_industry_specific_construction_industries_cert">VET Industry Specific Construction Industries (CERT)</option>
+    <option value="vet_industry_specific_creative_industries_cert">VET Industry Specific Creative Industries (CERT)</option>
+    <option value="vet_industry_specific_engineering_cert">VET Industry Specific Engineering (CERT)</option>
+    <option value="vet_industry_specific_hospitality_and_tourism_cert">VET Industry Specific Hospitality and Tourism (CERT)</option>
+    <option value="vet_industry_specific_information_and_communications_technology_cert">VET Industry Specific Information and Communications Technology (CERT)</option>
+    <option value="vet_industry_specific_primary_industries_cert">VET Industry Specific Primary Industries (CERT)</option>
+    <option value="vet_industry_specific_sport_and_recreation_cert">VET Sport And Recreation (CERT)</option>
+    
+                
+                    <!-- Populate with Australian curriculum subjects -->
+                </datalist>
+            </div>
+            <div class="input-box">
+                <label for="resource-selection">Resource Type</label>
+                <select id="resource-selection" class="input-field">
+                    <option value="lesson_plan">Lesson Plan</option>
+                    <option value="powerpoint">PowerPoint</option>
+                    <option value="practice_test">Practice Test</option>
+                    <option value="homework">Homework</option>
+                    <option value="class_activity">Class Activity</option>
+                    <option value="assignment">Assignment</option>
+                    <option value="practice_exam">Practice Exam</option>
+                    <option value="work_sheet">Work Sheet</option>
+                    <option value="single_question">Single Question</option>
+                    <option value="single_question_extended_answer">Single Question (Extended Answer)</option>
+                    <option value="multiple_choice_test">Multiple Choice Test</option>
+                    <option value="short_answer_written_test">Short-Answer Written Test</option>
+                    <option value="source_analysis_question">Source analysis Question</option>
+                    <option value="source_analysis_test">Source analysis Test</option>
+                    <option value="investigation_activity">Investigation Activity</option>
+                    <option value="group_experiments">Group Experiments</option>
+                                    <!-- Populate with resource types -->
+                </select>
+            </div>
+            <div class="input-box">
+                <label for="book-field">Book</label>
+                <input type="text" id="book-field" class="input-field" placeholder="Type the book being used">
+                <select id="book-selection" class="input-field">
+                    <!-- Populate with book titles -->
+                </select>
+            </div>
+            <div class="input-box">
+                <label for="topic-field">Topic</label>
+                <input type="text" id="topic-field" class="input-field" placeholder="Type the topic being taught">
+            </div>
+            <div class="input-box">
+                <input type="radio" id="chapters-option" name="chapter-page" checked>
+                <label for="chapters-option">Chapters</label>
+                <input type="radio" id="pages-option" name="chapter-page">
+                <label for="pages-option">Pages</label>
+                <input type="text" id="chapter-field" class="input-field" placeholder="Type the chapter being taught">
+                <input type="text" id="page-field-start" class="input-field" placeholder="Start page">
+                <input type="text" id="page-field-end" class="input-field" placeholder="End page">
+            </div>
+            <div class="input-box">
+                <label for="year-group-selection">Year Group</label>
+                <select id="year-group-selection" class="input-field">
+                    <!-- Populate with year groups -->
+                </select>
+            </div>
+            <div class="input-box">
+                <label for="curriculum-selection">Curriculum</label>
+                <select id="curriculum-selection" class="input-field">
+                    <!-- Populate with Australian curriculums -->
+                </select>
+            </div>
+            <button id="generate-content-button" class="submit-btn" disabled>Generate Content</button>
+        </div>
+        <div class="resource-display">
+            <!-- Display generated resources here -->
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    // Get all input fields
+    var inputFields = document.querySelectorAll('.input-field');
+    var generateButton = document.getElementById('generate-content-button');
+
+    // Add event listener to each input field
+    inputFields.forEach(function(inputField) {
+        inputField.addEventListener('input', function() {
+            // Check if all fields are filled
+            var allFilled = Array.from(inputFields).every(function(field) {
+                return field.value !== '';
+            });
+
+            // Enable or disable the button based on whether all fields are filled
+            generateButton.disabled = !allFilled;
+        });
+    });
+
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('#subject-selection').select2();
+    });
+</script>
