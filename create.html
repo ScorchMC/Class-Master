@@ -199,7 +199,7 @@
     
                 
                     <!-- Populate with Australian curriculum subjects -->
-                </datalist>
+                </select>
             </div>
             <div class="input-box">
                 <label for="resource-selection">Resource Type</label>
@@ -216,20 +216,25 @@
                     <option value="single_question_extended_answer">Single Question (Extended Answer)</option>
                     <option value="multiple_choice_test">Multiple Choice Test</option>
                     <option value="short_answer_written_test">Short-Answer Written Test</option>
+                    <option value="short_answer_and_mutiple_choice_test">Short-Answer And Multiple Choice Test</option>
                     <option value="source_analysis_question">Source analysis Question</option>
                     <option value="source_analysis_test">Source analysis Test</option>
                     <option value="investigation_activity">Investigation Activity</option>
                     <option value="group_experiments">Group Experiments</option>
-                                    <!-- Populate with resource types -->
                 </select>
             </div>
             <div class="input-box">
                 <label for="book-field">Book</label>
-                <input type="text" id="book-field" class="input-field" placeholder="Type the book being used">
-                <select id="book-selection" class="input-field">
-                    <!-- Populate with book titles -->
-                </select>
+                <input type="text" id="book-field" class="input-field" placeholder="Type the book being used" list="book-list">
+                <datalist id="book-list">
+                    <option value="Book 1">
+                    <option value="Book 2">
+                    <option value="Book 3">
+                    <!-- Add more options as needed -->
+                    </select>
             </div>
+                    
+            
             <div class="input-box">
                 <label for="topic-field">Topic</label>
                 <input type="text" id="topic-field" class="input-field" placeholder="Type the topic being taught">
@@ -246,14 +251,39 @@
             <div class="input-box">
                 <label for="year-group-selection">Year Group</label>
                 <select id="year-group-selection" class="input-field">
+                    <option value="Year_1">Year 1</option>
+                    <option value="Year_2">Year 2</option>
+                    <option value="Year_3">Year 3</option>
+                    <option value="Year_4">Year 4</option>
+                    <option value="Year_5">Year 5</option>
+                    <option value="Year_6">Year 6</option>
+                    <option value="Year_7">Year 7</option>
+                    <option value="Year_8">Year 8</option>
+                    <option value="Year_9">Year 9</option>
+                    <option value="Year_10">Year 10</option>
+                    <option value="Year_11">Year 11</option>
+                    <option value="Year_12">Year 12</option>
                     <!-- Populate with year groups -->
                 </select>
             </div>
             <div class="input-box">
                 <label for="curriculum-selection">Curriculum</label>
                 <select id="curriculum-selection" class="input-field">
+                    <option value="Australian_Curriculum_(ACARA)">Australian Curriculum (ACARA)</option>
+                    <option value="Victorian_Curriculum_(VCAA)">Victorian Curriculum (VCAA)</option>
+                    <option value="New_South_Wales_Curriculum_(NESA)">New South Wales Curriculum (NESA)</option>
+                    <option value="Queensland_Curriculum_(QCAA)">Queensland Curriculum (QCAA)</option>
+                    <option value="Western_Australian_Curriculum_(SCSA)">Western Australian Curriculum (SCSA)</option>
+                    <option value="South_Australian_Curriculum_(SACE Board)">South Australian Curriculum (SACE Board)</option>
+                    <option value="Tasmanian_Curriculum_(TASC)">Tasmanian Curriculum (TASC)</option>
+                    <option value="Northern_Territory_Curriculum_(NTCET)">Northern Territory Curriculum (NTCET)</option>
+                    <option value="Australian_Capital_Territory_Curriculum_(BSSS)">Australian Capital Territory Curriculum (BSSS)</option>
                     <!-- Populate with Australian curriculums -->
                 </select>
+            </div>
+            <div class="input-box">
+                <label for="additional-comments">Additional Comments</label>
+                <textarea id="additional-comments" class="input-field" placeholder="Type additional comments such as areas for improvement to enhance content"></textarea>
             </div>
             <button id="generate-content-button" class="submit-btn" disabled>Generate Content</button>
         </div>
