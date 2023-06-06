@@ -4,6 +4,9 @@
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+        
+
     </head>    
 <head>
     <link rel="stylesheet" type="text/css" href="create.css">
@@ -224,16 +227,12 @@
                 </select>
             </div>
             <div class="input-box">
-                <label for="book-field">Book</label>
-                <input type="text" id="book-field" class="input-field" placeholder="Type the book being used" list="book-list">
-                <datalist id="book-list">
-                    <option value="Book 1">
-                    <option value="Book 2">
-                    <option value="Book 3">
-                    <!-- Add more options as needed -->
-                    </select>
+                <label for="book-selection">Book</label>
+                <select id="book-selection" class="input-field">
+                    <!-- Populate with book titles -->
+                </select>
             </div>
-                    
+                     
             
             <div class="input-box">
                 <label for="topic-field">Topic</label>
@@ -316,5 +315,57 @@
 <script>
     $(document).ready(function() {
         $('#subject-selection').select2();
+    });
+
+</script>
+<script>
+    function searchByISBN(isbn) {
+    var url = "https://openlibrary.org/isbn/{ISBN}.json" + isbn + "&format=json&jscmd=data";
+    return fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            var bookKey = "ISBN:" + isbn;
+            if (data[bookKey]) {
+                var book = data[bookKey];
+                return {
+                    id: isbn,
+                    text: book.title + " by " + (book.authors ? book.authors[0].name : "Unknown")
+                };
+            } else {
+                return null;
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            return null;
+        });
+}
+
+$("#input-field").select2({
+    minimumInputLength: 10,
+    placeholder: "Type the ISBN of the book",
+    ajax: {
+        delay: 250,
+        transport: function(params, success, failure) {
+            searchByISBN(params.data.term)
+                .then(book => {
+                    if (book) {
+                        success({ results: [book] });
+                    } else {
+                        success({ results: [] });
+                    }
+                })
+                .catch(error => {
+                    failure(error);
+                });
+        }
+    }
+});
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('#subject-selection').select2();
+        $('#book-selection').select2();
     });
 </script>
