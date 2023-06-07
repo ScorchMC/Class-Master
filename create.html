@@ -232,6 +232,78 @@
                     <!-- Populate with book titles -->
                 </select>
             </div>
+            <script>
+                function searchByISBN(isbn) {
+                    var openLibraryUrl = "https://openlibrary.org/api/books?bibkeys=ISBN:" + isbn + "&format=json&jscmd=data";
+                    var googleBooksUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn;
+    
+                    var openLibraryRequest = fetch(openLibraryUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            var bookKey = "ISBN:" + isbn;
+                            if (data[bookKey]) {
+                                var book = data[bookKey];
+                                return {
+                                    id: isbn,
+                                    text: book.title + " by " + (book.authors ? book.authors[0].name : "Unknown")
+                                };
+                            } else {
+                                return null;
+                            }
+                        });
+    
+                    var googleBooksRequest = fetch(googleBooksUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.totalItems > 0) {
+                                var book = data.items[0].volumeInfo;
+                                return {
+                                    id: isbn,
+                                    text: book.title + " by " + (book.authors ? book.authors[0] : "Unknown")
+                                };
+                            } else {
+                                return null;
+                            }
+                        });
+    
+                    return Promise.all([openLibraryRequest, googleBooksRequest])
+                        .then(results => results.filter(result => result !== null))
+                        .catch(error => {
+                            console.error("Error:", error);
+                            return [];
+                        });
+                }
+    
+                $(document).ready(function() {
+                    var $bookSelection = $('#book-selection');
+    
+                    $bookSelection.select2({
+                        minimumInputLength: 10,
+                        placeholder: "Type the ISBN of the book",
+                        ajax: {
+                            delay: 250,
+                            transport: function(params, success, failure) {
+                                searchByISBN(params.data.term)
+                                    .then(books => {
+                                        var results = books;
+                                        // Always include the user's input as a selectable option
+                                        results.push({
+                                            id: params.data.term,
+                                            text: params.data.term
+                                        });
+                                        success({ results: results });
+                                    })
+                                    .catch(error => {
+                                        failure(error);
+                                    });
+                            }
+                        }
+                    });
+                });
+            </script>
+        </body>
+    </html>
+        
                      
             
             <div class="input-box">
@@ -279,6 +351,25 @@
                     <option value="Australian_Capital_Territory_Curriculum_(BSSS)">Australian Capital Territory Curriculum (BSSS)</option>
                     <!-- Populate with Australian curriculums -->
                 </select>
+                <div class="input-box">
+                    <label for="task-duration">Task Duration (Optional)</label>
+                    <select id="task-duration" style="width:200px;">
+                        <option value="">Select duration</option>
+                        <option value="15">15 minutes</option>
+                        <option value="30">30 minutes</option>
+                        <option value="45">45 minutes</option>
+                        <option value="60">1 hour</option>
+                        <option value="75">1 hour 15 minutes</option>
+                        <option value="90">1 hour 30 minutes</option>
+                        <option value="105">1 hour 45 minutes</option>
+                        <option value="120">2 hours</option>
+                        <option value="135">2 hours 15 minutes</option>
+                        <option value="150">2 hours 30 minutes</option>
+                        <option value="165">2 hours 45 minutes</option>
+                        <option value="180">3 hours</option>
+                    </select>
+                </div>
+                
             </div>
             <div class="input-box">
                 <label for="additional-comments">Additional Comments</label>
@@ -341,7 +432,7 @@
         });
 }
 
-$("#input-field").select2({
+$("#book-selection").select2({
     minimumInputLength: 10,
     placeholder: "Type the ISBN of the book",
     ajax: {
@@ -365,7 +456,11 @@ $("#input-field").select2({
 </script>
 <script>
     $(document).ready(function() {
-        $('#subject-selection').select2();
         $('#book-selection').select2();
     });
 </script>
+<script>
+    $(document).ready(function() {
+        $('#subject-selection').select2({
+            tags: true
+        });})
