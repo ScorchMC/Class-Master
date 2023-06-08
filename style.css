@@ -4002,4 +4002,9 @@ html {
     width: 30px;
     justify-content: right;
   }
+  #userProfilePic {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
   
