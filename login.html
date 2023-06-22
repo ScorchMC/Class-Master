@@ -9,13 +9,83 @@
   <div class="container">
     <img src="class master logo.png" alt="Class Master Logo" class="logo">
     <h1>Login</h1>
-    <form>
+    <form id="login-form">
       <label for="email">Email:</label><br>
       <input type="email" id="email" name="email" class="input-field"><br>
       <label for="password">Password:</label><br>
       <input type="password" id="password" name="password" class="input-field"><br>
+      <a href="#" id="forgot-password">Forgot Password?</a>
       <input type="submit" value="Login" class="submit-button">
     </form>
   </div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+<!-- Firebase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+
+<!-- Firebase Storage -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+
+
+  <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyD0CokJpQFldX5p30nWx9PmsouWRlbsR4I",
+    authDomain: "class-master-db1f5.firebaseapp.com",
+    projectId: "class-master-db1f5",
+    storageBucket: "class-master-db1f5.appspot.com",
+    messagingSenderId: "1:220188454292:web:ed4e2bc8652d43316eb381",
+    appId: "G-9DDDYTFZYB"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Sign in successful.
+    var user = userCredential.user;
+    if (!user.emailVerified) {
+      // If email is not verified, sign out the user and show an alert message
+      firebase.auth().signOut();
+      alert("Please verify your email before logging in.");
+    } else {
+      // If email is verified, redirect to home page
+      window.location.href = "index.html"; // replace with your home page URL
+    }
+  })
+  .catch((error) => {
+    // Handle sign in error here
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage);
+  });
+
+  });
+
+  document.getElementById("forgot-password").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    firebase.auth().sendPasswordResetEmail(email)
+      .then(() => {
+        // Password reset email sent!
+        alert("Password reset email sent!");
+      })
+      .catch((error) => {
+        // Handle password reset error here
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        alert(errorMessage);
+      });
+  });
+  </script>
 </body>
 </html>

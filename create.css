@@ -84,3 +84,25 @@ input[type=text], select, textarea {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    border-radius: 50%; /* This makes the image circular */
+    object-fit: cover; /* This ensures the image covers the entire area of the img element without stretching */
+    margin-right: 10px; /* Space between the image and the name */
+}
+#userName {
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#resource-display {
+    flex-basis: 45%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}

@@ -1,56 +1,117 @@
-// Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyD0CokJpQFldX5p30nWx9PmsouWRlbsR4I",
-    authDomain: "class-master-db1f5.firebaseapp.com",
-    projectId: "class-master-db1f5",
-    storageBucket: "class-master-db1f5.appspot.com",
-    messagingSenderId: "1:220188454292:web:ed4e2bc8652d43316eb381",
-    appId: "G-9DDDYTFZYB"
-};
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyD0CokJpQFldX5p30nWx9PmsouWRlbsR4I",
+        authDomain: "class-master-db1f5.firebaseapp.com",
+        projectId: "class-master-db1f5",
+        storageBucket: "class-master-db1f5.appspot.com",
+        messagingSenderId: "1:220188454292:web:ed4e2bc8652d43316eb381",
+        appId: "G-9DDDYTFZYB"
+    };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-// Listen for auth state changes
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        // User is signed in
-        fetchUserDetails(user);
-        fetchUserProfilePicture(user);
-    } else {
-        // No user is signed in
-        console.log("No user is signed in");
-        // Redirect to signup page
-        window.location.href = "signup.html";
-    }
-});
+    // Initialize Cloud Functions
+    const generateContent = firebase.functions().httpsCallable('generateContent');
 
-// Fetch user details
-function fetchUserDetails(user) {
-    var db = firebase.firestore();
-    var docRef = db.collection("users").doc(user.uid);
-
-    docRef.get().then(doc => {
-        if (doc.exists) {
-            document.getElementById("userName").textContent = doc.data().firstName + " " + doc.data().lastName;
+    // Listen for auth state changes
+    firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+            // User is signed in
+            fetchUserDetails(user);
+            fetchUserProfilePicture(user);
         } else {
-            console.log("No such document!");
+            // No user is signed in
+            console.log("No user is signed in");
+            // Redirect to signup page
+            window.location.href = "signup.html";
         }
-    }).catch(error => {
-        console.log("Error getting document:", error);
     });
-}
 
-// Fetch user profile picture
-function fetchUserProfilePicture(user) {
-    var storageRef = firebase.storage().ref();
-    var profilePicRef = storageRef.child('profile-pictures/' + user.uid);
+    // Fetch user details
+    function fetchUserDetails(user) {
+        var db = firebase.firestore();
+        var docRef = db.collection("users").doc(user.uid);
 
-    profilePicRef.getDownloadURL().then(url => {
-        // Got the download URL, set it as the src of the img tag
-        document.getElementById('userProfilePic').src = url;
-    }).catch(error => {
-        // Handle any errors
-        console.error('Error getting profile picture URL:', error);
-    });
-}
+        docRef.get().then(doc => {
+            if (doc.exists) {
+                document.getElementById("userName").textContent = doc.data().firstName + " " + doc.data().lastName;
+            } else {
+                console.log("No such document!");
+            }
+        }).catch(error => {
+            console.log("Error getting document:", error);
+        });
+    }
+
+    // Fetch user profile picture
+    function fetchUserProfilePicture(user) {
+        var storageRef = firebase.storage().ref();
+        var profilePicRef = storageRef.child('profile-pictures/' + user.uid);
+
+        profilePicRef.getDownloadURL().then(url => {
+            // Got the download URL, set it as the src of the img tag
+            document.getElementById('userProfilePic').src = url;
+        }).catch(error => {
+            // Handle any errors
+            console.error('Error getting profile picture URL:', error);
+        });
+    }
+
+    // Call the generateContent function when the button is clicked
+    console.log('About to add event listener to button');
+    document.getElementById('generate-content-button').addEventListener('click', function() {
+        const taskDuration = document.getElementById('task-duration').value;
+        const resourceType = document.getElementById('resource-selection').value;
+        const topic = document.getElementById('topic-field').value;
+        const subject = document.getElementById('subject-selection').value;
+        const curriculum = document.getElementById('curriculum-selection').value;
+        const book = document.getElementById('book-selection').value;
+        const chapters = document.getElementById('chapters-option').checked ? document.getElementById('chapter-field').value : null;
+        const pages = document.getElementById('pages-option').checked ? document.getElementById('page-field-start').value + '-' + document.getElementById('page-field-end').value : null;
+        const yearLevel = document.getElementById('year-group-selection').value;
+        const additionalComments = document.getElementById('additional-comments').value;
+
+        const data = {
+            taskDuration: taskDuration,
+            resourceType: resourceType,
+            topic: topic,
+            subject: subject,
+            curriculum: curriculum,
+            book: book,
+            chapters: chapters,
+            pages: pages,
+            yearLevel: yearLevel,
+            additionalComments: additionalComments,
+        };
+
+        console.log('Sending data:', data); // Add this line
+        console.log('About to call generateContent with data:', data);
+
+        generateContent(data)
+        .then(result => {
+            const content = result.data.content;
+            // Display the text generated by GPT-3.5-turbo
+            document.getElementById('resource-display').innerText = content.text;
+        
+            // If there's a response from the Wolfram API, display it
+            if (content.wolfram && content.wolfram.queryresult && Array.isArray(content.wolfram.queryresult.pods)) {
+                // The Wolfram API response is a complex object, so you'll need to decide how to display it
+                // For example, you could display the 'input' and 'result' properties of the 'pods' array
+                content.wolfram.queryresult.pods.forEach(pod => {
+                    const podElement = document.createElement('div');
+                    podElement.innerText = `Input: ${pod.input} Result: ${pod.result}`;
+                    document.getElementById('resource-display').appendChild(podElement);
+                });
+            } else {
+                console.error('Wolfram API response does not contain expected data');
+                console.log('Wolfram API response:', JSON.stringify(content.wolfram, null, 2));  // Log the entire Wolfram API response
+            }
+        })
+        .catch(error => {
+            console.error('Error generating content:', error);
+        });
+        
+    });})
+     

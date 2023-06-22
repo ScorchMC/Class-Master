@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Settings</title>
+  <link rel="stylesheet" href="settings.css">
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <!-- Firebase Storage -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+ 
+  </script>     
+</head>
+<body>
+<div class="settings-container">
+    <a href="index.html">
+        <img src="class master logo.png" alt="Class Master Logo" class="logo">
+      </a>
+    <h1>Settings</h1>
+        <div class="settings-section">
+          <div class="settings-menu">
+            <a href="#" id="profile-settings-button">Profile Settings</a>
+            <a href="#" id="notification-settings-button">Notification Settings</a>
+            <a href="#" id="theme-settings-button">Theme Settings</a>
+            <a href="#" id="subscription-settings-button">Subscription</a>
+          </div>
+          <div class="settings-content">
+            <form id="settings-form">
+    
+            <div id="profile-settings" class="settings-group">
+                <h2>Profile Settings</h2>
+                <label for="firstname">First Name:</label><br>
+                <input type="text" id="firstname" name="firstname" class="input-field"><br>
+                <label for="lastname">Last Name:</label><br>
+                <input type="text" id="lastname" name="lastname" class="input-field"><br>
+                <label for="profile-picture">Profile Picture:</label><br>
+                <img id="userProfilePic" class="profile-pic" alt="Current Profile Picture"><br>
+                <input type="file" id="profile-picture" name="profile-picture" class="input-field"><br>
+                <button id="change-password" class="button">Change Password</button>
+                <button id="save-changes" class="button">Save Changes</button>
+                </div>
+                  
+          
+              <div id="notification-settings" class="settings-group" style="display: none;">
+                <h2>Notification Settings</h2>
+                <label for="notifications">Receive Notifications:</label><br>
+                <input type="checkbox" id="notifications" name="notifications" class="input-field"><br>
+                <button id="save-changes" class="button">Save Changes</button>
+              </div>
+              
+              <div id="theme-settings" class="settings-group" style="display: none;">
+                <h2>Theme Settings</h2>
+                <label for="theme">Theme:</label><br>
+                <select id="theme" name="theme" class="input-field">
+                  <option value="light">Light</option>
+                  <option value="dark">Dark</option>
+                </select><br>
+                <button id="save-changes" class="button">Save Changes</button>
+              </div>
+              
+              <div id="subscription-settings" class="settings-group" style="display: none;">
+                <h2>Subscription</h2>
+                <button id="cancel-subscription" class="button">Cancel Subscription</button>
+
+              </div>
+              
+        </form>
+      </div>
+    </div>
+  </div>
+</script>
+</body>
+</html>
+<script src="settings.js"></script>
+<script>
+  window.addEventListener('load', function() {
+  // Get the saved theme from localStorage
+  var theme = localStorage.getItem('theme');
+
+  // If there's a saved theme, apply it
+  if (theme) {
+    document.body.classList.remove('light-theme', 'dark-theme');
+    document.body.classList.add(theme + '-theme');
+  }
+});
+
+</script>

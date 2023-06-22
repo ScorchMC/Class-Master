@@ -9,7 +9,7 @@
   <div class="container">
     <img src="class master logo.png" alt="Class Master Logo" class="logo">
     <h1>Sign Up</h1>
-    <form>
+    <form id="signup-form">
       <label for="firstname">First Name:</label><br>
       <input type="text" id="firstname" name="firstname" class="input-field"><br>
       <label for="lastname">Last Name:</label><br>
@@ -20,8 +20,26 @@
       <input type="password" id="password" name="password" class="input-field"><br>
       <label for="confirmpassword">Confirm Password:</label><br>
       <input type="password" id="confirmpassword" name="confirmpassword" class="input-field"><br>
+      <label for="profile-picture">Profile Picture:</label><br>
+      <input type="file" id="profile-picture" name="profile-picture" class="input-field"><br>
       <input type="submit" value="Sign Up" class="submit-button">
     </form>
   </div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+  <!-- Firebase Storage -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+
+
+  </script>  
 </body>
 </html>
+<script src="signup.js"></script>
