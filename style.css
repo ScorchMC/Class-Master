@@ -4014,5 +4014,176 @@ html {
     font-size: 14px;
     color: black;
   }
-  
-  
+  .create-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 20px 20px 20px; /* top right bottom left */
+  background-color: #515969;
+}
+
+
+.input-section {
+    flex-basis: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.input-box {
+    margin-bottom: 20px;
+}
+
+input[type=text], select { 
+  width: 100% !important;
+  padding: 12px 20px !important;
+  margin: 8px 0 !important;
+  display: inline-block !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+}
+
+
+#generate-content-button {
+    background-color: #72086a;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.resource-display {
+    flex-basis: 45%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: auto; /* Add this line if you want to add a scrollbar for large images */
+}
+
+.resource-display img {
+    max-width: 100%; /* This will make the image take up no more than the full width of its container */
+    height: auto; /* This will maintain the image's aspect ratio */
+}
+
+input[type=text], select, textarea {
+  width: 100% !important;
+  padding: 12px 20px !important;
+  margin: 8px 0 !important;
+  display: inline-block !important;
+  border: 1px solid #ccc !important;
+  border-radius: 4px !important;
+  box-sizing: border-box !important;
+  font-family: Arial, sans-serif !important;
+}
+
+
+#resource-display {
+  flex-basis: 45%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; /* Or set to the minimum height you want */
+}
+
+.spacer {
+  background-color: white;
+  height: 50px; /* Adjust as needed */
+  width: 100%;
+}
+.footer2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #353f53;
+  position: relative; /* Add this line */
+}
+
+.logo2 {
+  width: 100px; /* Adjust as needed */ 
+  height: auto;
+  margin-left: 50px; /* Add some space to the left of the logo */
+}
+.footer-text2 {
+  margin: 0 auto; /* Center the div horizontally */
+  padding: 10px 300px 0 20px; /* Add some padding on the top and sides */
+  text-align: left; /* Align the text to the left */
+  color: white; /* Make the text white */
+}
+
+.footer-text2 h2 {
+  font-weight: bold;
+  color: white; /* Explicitly set the color to white */
+  font-size: 18px; /* Adjust the font size */
+}
+
+.footer-text2 p {
+  margin-top: -5px; /* Reduce the top margin */
+}
+.footer-text3 {
+  position: absolute; /* Position the div absolutely */
+  right: 200px; /* Increase this to move the text more to the left */
+  top: 35%; /* Center the div vertically */
+  transform: translateY(-50%); /* Adjust the vertical position */
+  color: white; /* Make the text white */
+}
+
+.footer-text3 h2 {
+  font-weight: bold;
+  color: white; /* Explicitly set the color to white */
+  font-size: 1.05em; /* Decrease the font size */
+}
+#loading-spinner {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#mark-content-button {
+  background-color: #72086a;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.heading-section {
+  width: 100%;
+  text-align: center;
+  background-color: #515969;
+  font-family:  Neue, Helvetica, Ubuntu, Segoe UI, Verdana, sans-serif;
+}
+.heading-section h1 {
+  margin: 0;
+}
+
+
