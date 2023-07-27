@@ -37,29 +37,37 @@
         <div class="navbar-space"></div>
         <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease-out"
         data-easing2="ease-out" role="banner" class="navbar-inner w-nav">
-        <div class="container">
             <div class="navbar-wrapper">
                 <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-                    <div class="nav-menu-flex"><a href="#" class="w-nav-brand"><img
-                                src="https://uploads-ssl.webflow.com/6475582b591b8cffd51600dc/64755b5f63db6e5b5fdc9179_Screenshot%202023-05-30%20101016.png"
-                                loading="lazy" width="120" height="100" alt="" /></a>
+                    <div class="nav-menu-flex"><a href="index.html" class="w-nav-brand"><img
+                                src="./class master logo.png"
+                                loading="lazy" width="300" height= auto alt="" /></a>
                                 <ul role="list" class="nav-menu w-list-unstyled">
                                     <li id="create-button"><a href="create.html" class="nav-link">Create</a></li>
                                     <li><a href="#about" class="nav-link">Support</a></li>
                                     <li id="settings-button" style="display: none;"><a href="settings.html" class="nav-link">Settings</a></li>
                                     <li id="logout-button" style="display: none;"><a href="#" class="nav-link">Log Out</a></li>
                                     <li id="pricing-button"><a href="#pricing" class="nav-link">Pricing</a></li>
-                                    <li id="mark-tests-button" style="display: none;"><a href="#" class="nav-link">Mark Tests</a></li>
+                                    <li id="mark-tests-button" style="display: none;"><a href="mark.html" class="nav-link">Mark Tests</a></li>
                                     <li><a href="signup.html" class="nav-link">Sign-Up</a></li>
                                     <li><a href="login.html" class="nav-link">Login</a></li>
-                                    <li id="userProfilePicListItem" style="display: none;"><a href="#" class="nav-link"><img id="userProfilePic" src="business-man-profile-vector.jpg" alt="Profile" class="profile-icon">
-                                    <span id="userName"></span></a></li>
+                                    <li id="userProfilePicListItem" style="display: none;">
+                                        <a href="#" class="nav-link profile-link">
+                                            <img id="userProfilePic" src="giphy.gif" alt="Profile" class="profile-icon">
+                                            <span id="userName"></span>
+                                        </a>
+                                    </li>
                                 </ul>
-                    </div>
+                            </div>
                 </nav>
             </div>
         </div>
-    <div class="spacer"></div>   
+        <div class="spacer"></div>   
+        <div class="spacer2"></div>   
+        <div class="heading-section">
+            <h1 style="color: rgb(190, 188, 188); text-align: center;">Generate Educational Resources Instantly!</h1>
+            <h2 style="color: rgb(190, 188, 188); text-align: center; font-size: 18px;">Tailored for you, your students, and your needs</h2>
+        </div>
     <div class="content">
         <div class="input-section">
             <div class="input-box">
@@ -415,7 +423,12 @@
         <div id="resource-display">
             <!-- Display generated resources here -->
             <div id="loading-spinner" style="display: none;"></div>
+            <div class="navigation-buttons">
+                <button id="prev-button" class="nav-button">&lt;</button>
+                <button id="next-button" class="nav-button">&gt;</button>
+            </div>
         </div>
+        
     </div>
     <div class="footer2">
         <img src="class master logo.png" alt="ClassMaster Logo" class="logo2">
