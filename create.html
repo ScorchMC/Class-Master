@@ -43,7 +43,7 @@
                                 src="./class master logo.png"
                                 loading="lazy" width="300" height= auto alt="" /></a>
                                 <ul role="list" class="nav-menu w-list-unstyled">
-                                    <li id="create-button"><a href="create.html" class="nav-link">Create</a></li>
+                                    <li id="create-button"><a href="#" class="nav-link">Create</a></li>
                                     <li><a href="#about" class="nav-link">Support</a></li>
                                     <li id="settings-button" style="display: none;"><a href="settings.html" class="nav-link">Settings</a></li>
                                     <li id="logout-button" style="display: none;"><a href="#" class="nav-link">Log Out</a></li>
@@ -276,73 +276,6 @@
                 </select>
             </div>
             <script>
-                function searchByISBN(isbn) {
-                    var openLibraryUrl = "https://openlibrary.org/api/books?bibkeys=ISBN:" + isbn + "&format=json&jscmd=data";
-                    var googleBooksUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn;
-    
-                    var openLibraryRequest = fetch(openLibraryUrl)
-                        .then(response => response.json())
-                        .then(data => {
-                            var bookKey = "ISBN:" + isbn;
-                            if (data[bookKey]) {
-                                var book = data[bookKey];
-                                return {
-                                    id: isbn,
-                                    text: book.title + " by " + (book.authors ? book.authors[0].name : "Unknown")
-                                };
-                            } else {
-                                return null;
-                            }
-                        });
-    
-                    var googleBooksRequest = fetch(googleBooksUrl)
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.totalItems > 0) {
-                                var book = data.items[0].volumeInfo;
-                                return {
-                                    id: isbn,
-                                    text: book.title + " by " + (book.authors ? book.authors[0] : "Unknown")
-                                };
-                            } else {
-                                return null;
-                            }
-                        });
-    
-                    return Promise.all([openLibraryRequest, googleBooksRequest])
-                        .then(results => results.filter(result => result !== null))
-                        .catch(error => {
-                            console.error("Error:", error);
-                            return [];
-                        });
-                }
-    
-                $(document).ready(function() {
-                    var $bookSelection = $('#book-selection');
-    
-                    $bookSelection.select2({
-                        minimumInputLength: 10,
-                        placeholder: "Type the ISBN of the book",
-                        ajax: {
-                            delay: 250,
-                            transport: function(params, success, failure) {
-                                searchByISBN(params.data.term)
-                                    .then(books => {
-                                        var results = books;
-                                        // Always include the user's input as a selectable option
-                                        results.push({
-                                            id: params.data.term,
-                                            text: params.data.term
-                                        });
-                                        success({ results: results });
-                                    })
-                                    .catch(error => {
-                                        failure(error);
-                                    });
-                            }
-                        }
-                    });
-                });
             </script>
         </body>
     </html>
@@ -445,86 +378,3 @@
     </html>
     
 
-<script>
-    // Get all input fields
-    var inputFields = document.querySelectorAll('.input-field');
-    var generateButton = document.getElementById('generate-content-button');
-
-    // Add event listener to each input field
-    inputFields.forEach(function(inputField) {
-        inputField.addEventListener('input', function() {
-            // Check if all fields are filled
-            var allFilled = Array.from(inputFields).every(function(field) {
-                return field.value !== '';
-            });
-
-            // Enable or disable the button based on whether all fields are filled
-            generateButton.disabled = !allFilled;
-        });
-    });
-
-
-</script>
-<script>
-    $(document).ready(function() {
-        $('#subject-selection').select2();
-    });
-
-</script>
-<script>
-    function searchByISBN(isbn) {
-    var url = "https://openlibrary.org/isbn/{ISBN}.json" + isbn + "&format=json&jscmd=data";
-    return fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            var bookKey = "ISBN:" + isbn;
-            if (data[bookKey]) {
-                var book = data[bookKey];
-                return {
-                    id: isbn,
-                    text: book.title + " by " + (book.authors ? book.authors[0].name : "Unknown")
-                };
-            } else {
-                return null;
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            return null;
-        });
-}
-
-$("#book-selection").select2({
-    minimumInputLength: 10,
-    placeholder: "Type the ISBN of the book",
-    ajax: {
-        delay: 250,
-        transport: function(params, success, failure) {
-            searchByISBN(params.data.term)
-                .then(book => {
-                    if (book) {
-                        success({ results: [book] });
-                    } else {
-                        success({ results: [] });
-                    }
-                })
-                .catch(error => {
-                    failure(error);
-                });
-        }
-    }
-});
-
-</script>
-<script>
-    $(document).ready(function() {
-        $('#book-selection').select2();
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $('#subject-selection').select2({
-            tags: true
-        });})
-
-        
