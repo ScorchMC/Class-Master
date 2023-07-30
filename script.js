@@ -13916,17 +13916,23 @@ document.getElementById('logout-button').addEventListener('click', function(even
     }
   });
 
-  document.getElementById('create-button').addEventListener('click', function(event) {
-    event.preventDefault();
+  $(document).ready(function() {
+    document.getElementById('create-button').addEventListener('click', function(event) {
+        event.preventDefault();
 
-    $.get("create.html", function(data) {
-      $("#content").html(data);
-      $.getScript("create.js", function() {
-          if (typeof initCreatePage === "function") {
-              initCreatePage();
-          }
-      });
-  });})
+        $.get("create.html", function(data) {
+            $(".hideable-content").html(data);
+            $.getScript("create.js", function() {
+                if (typeof initCreatePage === "function") {
+                    initCreatePage();
+                }
+            });
+        });
+    });
+});
+
+  
+
 
 
   
