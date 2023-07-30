@@ -4049,14 +4049,14 @@ html {
 }
 
 input[type=text], select { 
-  width: 100% !important;
-  padding: 12px 20px !important;
-  margin: 8px 0 !important;
-  display: inline-block !important;
-  border: 1px solid #ccc !important;
-  border-radius: 4px !important;
-  box-sizing: border-box !important;
-  z-index: 9999;
+  width: 100% ;
+  padding: 12px 20px ;
+  margin: 8px 0 ;
+  display: inline-block ;
+  border: 1px solid #ccc ;
+  border-radius: 4px ;
+  box-sizing: border-box ;
+  z-index: 9999 !important;
 }
 
 
@@ -4094,6 +4094,7 @@ input[type=text], select, textarea {
   border-radius: 4px !important;
   box-sizing: border-box !important;
   font-family: Arial, sans-serif !important;
+  z-index: 9999;
 }
 
 
@@ -4228,6 +4229,9 @@ input[type=text], select, textarea {
 
 .nav-button:hover {
   background-color: #ddd; /* Darker gray background on hover */
+}
+.hidden {
+  display: none;
 }
 
 
